@@ -1,16 +1,17 @@
 # dhcp-helper
-mini dhcp helper
 
-e.g. in a given `docker-compose.yml`:
+dhcp helper / relay agent
+
+e.g. in a given `docker-compose.yml` (the command is specifying the target of the relay):
 
 ```dockerfile
 ---
 services
   dhcphelper:
-    build: ./dhcp-helper
+    image: karmaterminal/dhcp-helper:latest
     restart: unless-stopped
     network_mode: "host"
-    command: -s 172.31.0.100
+    command: -s x.x.x.x
     cap_add:
       - NET_ADMIN
 ```
